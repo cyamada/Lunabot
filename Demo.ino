@@ -22,13 +22,13 @@ void loop() {
   if (Serial.available() > 0) {
     int num = Serial.read() - '0';
     if (num == 1) {
-      forward();
+      forward(0);
     } else if (num == 2) {
-      right();
+      right(0);
     } else if (num == 3) {
-      reverse();
+      reverse(0);
     } else if (num == 4) {
-      left();
+      left(0);
     } else if (num == 5) {
       halt();
     }
@@ -82,21 +82,21 @@ void demo() {
  */
 }
 
-void forward() {
+void forward(int spd) {
  analogWrite(3, 174);  //184 stop - 190 reverse
  analogWrite(5, 200);  //back
  analogWrite(6, 200);  //184 stop - 190 reverse
  analogWrite(9, 174);
 }
 
-void reverse() {
+void reverse(int spd) {
  analogWrite(3, 200);
  analogWrite(5, 174);
  analogWrite(6, 174);
  analogWrite(9, 200);
 }
 
-void left() {
+void left(int spd) {
  analogWrite(3, 174);
  analogWrite(5, 174);
  analogWrite(6, 174);
@@ -104,7 +104,7 @@ void left() {
   
 }
 
-void right() {
+void right(int spd) {
    analogWrite(3, 200);
  analogWrite(5, 200);
  analogWrite(6, 200);
